@@ -1,0 +1,4 @@
+local.meta
+local/
+*.pyc
+passwords.conf

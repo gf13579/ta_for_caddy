@@ -1,0 +1,9 @@
+<nav search_view="search">
+  <view name="search"/>
+  <view name="overview" default='true' />
+  <collection label="Advanced">
+    <view name="reports" />
+    <view name="alerts" />
+    <view name="dashboards" />
+  </collection>
+</nav>
