@@ -18,7 +18,7 @@ sourcetype = caddy_access
 
 ## Configuration
 
-The TA has been written based on Caddy 2's default log format - a json object for `request`, with some time/level/type metadata in fields preceding the json. A `sedcmd` option in props.conf has been used to transform the non-json fields into json fields.
+The TA has been written based on Caddy 2's json log format - where `format json` is explicitly configured.
 
 The following is an example logging configuration for a Caddyfile. Refer to Caddy's [documentation](https://caddyserver.com/docs/caddyfile/directives/log) for details of how to customise what information gets logged.
 
@@ -29,5 +29,6 @@ log {
                 roll_keep 5
                 roll_keep_for 720h
         }
+        format json
 }
 ```
