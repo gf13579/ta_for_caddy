@@ -5,7 +5,7 @@ The Add-on for Caddy provides props and transforms to intepret Caddy 2's json-ba
 
 ## Installation
 
-Install this add-on on index - or heavy forwarders if used.
+Install this add-on on indexers - or heavy forwarders if used.
 
 Configure an inputs.conf to tail a Caddy 2 access log, e.g.
 
