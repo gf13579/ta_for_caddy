@@ -128,7 +128,7 @@
       <title>Requests over time</title>
       <chart>
         <search>
-          <query>index=* sourcetype=caddy_access | timechart count span=1m</query>
+          <query>`caddy_index` sourcetype=caddy_access | timechart count span=1m</query>
           <earliest>$timePicker1.earliest$</earliest>
           <latest>$timePicker1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -171,12 +171,12 @@
       <title>Top source-&gt;host traffic</title>
       <table>
         <search>
-          <query>index=* sourcetype=caddy_access | stats count by src_ip request.host | iplocation src_ip | table src_ip, request.host, City, Country, count | sort - count</query>
+          <query>`caddy_index` sourcetype=caddy_access | stats count by src_ip request.host | iplocation src_ip | table src_ip, request.host, City, Country, count | sort - count</query>
           <earliest>$timePicker1.earliest$</earliest>
           <latest>$timePicker1.latest$</latest>
           <sampleRatio>1</sampleRatio>
         </search>
-        <option name="count">20</option>
+        <option name="count">10</option>
         <option name="dataOverlayMode">none</option>
         <option name="drilldown">none</option>
         <option name="percentagesRow">false</option>
@@ -192,7 +192,7 @@
       <title>Top URLs accessed</title>
       <table>
         <search>
-          <query>index=* sourcetype=caddy_access | stats count by url | sort - count</query>
+          <query>`caddy_index` sourcetype=caddy_access | stats count by url | sort - count</query>
           <earliest>-4h@m</earliest>
           <latest>now</latest>
           <sampleRatio>1</sampleRatio>
@@ -201,6 +201,7 @@
         <option name="dataOverlayMode">none</option>
         <option name="drilldown">none</option>
         <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
         <option name="rowNumbers">false</option>
         <option name="totalsRow">false</option>
         <option name="wrap">true</option>
@@ -210,7 +211,7 @@
       <title>Top user agent</title>
       <table>
         <search>
-          <query>index=* sourcetype=caddy_access | stats count by http_user_agent | sort - count</query>
+          <query>`caddy_index` sourcetype=caddy_access | stats count by http_user_agent | sort - count</query>
           <earliest>$timePicker1.earliest$</earliest>
           <latest>$timePicker1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -231,7 +232,7 @@
       <title>Recent events</title>
       <table>
         <search>
-          <query>index=* sourcetype=caddy_access | table _time, src_ip, url, status, http_user_agent</query>
+          <query>`caddy_index` sourcetype=caddy_access | table _time, src_ip, url, status, http_user_agent | sort - _time</query>
           <earliest>$timePicker1.earliest$</earliest>
           <latest>$timePicker1.latest$</latest>
           <sampleRatio>1</sampleRatio>
