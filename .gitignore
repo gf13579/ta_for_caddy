@@ -2,3 +2,11 @@ local.meta
 local/
 *.pyc
 passwords.conf
+
+# Custom
+output/
+*.tgz
+*.tar.gz
+*.spl
+validation*.html
+!app.manifest
